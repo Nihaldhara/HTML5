@@ -2,99 +2,175 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #1B262C; /* Dark Blue Background */
+    color: #BBE1FA; /* Light Text */
 }
 
+/* Header and Navigation */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #333;
+    background-color: #0F4C75; /* Medium Blue */
     color: white;
 }
 
 #logo {
     width: 100px; /* Adjust size as needed */
-    /* If you want the logo to not grow or shrink, set the flex values as follows */
     flex: 0 1 auto; 
 }
 
 nav {
     display: flex;
-    flex-grow: 1; /* This will make the nav bar fill the available space */
-    justify-content: space-evenly; /* This spreads the items evenly */
+    flex-grow: 1; /* Fill available space */
+    justify-content: space-evenly;
 }
 
 nav a {
-    margin: 0 10px; /* Adjust as needed */
-    color: white;
+    margin: 0 10px;
+    color: #BBE1FA; /* Light Text */
     text-decoration: none;
 }
 
-.slideshow {
-    max-width: 1000px;
+nav a:hover {
+    color: #3282B8; /* Light Blue for Hover State */
+}
+
+/* Slideshow */
+:root {
+    --no-slides: 4;  /* including duplicated first slide */
+    --slide-time: 4s; /* stay time 75% + transition time 25% */
+  }
+
+  * {
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: 0px;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+
+  * {
+    -ms-overflow-style: none;
+  }
+
+  .carousel {
     position: relative;
-    margin: auto;
-    overflow: hidden;
-}
+    perspective: 100px;
+  }
 
-.slide-radio {
-    display: none;
-}
+  .carousel-viewport {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
 
-.slide {
-    display: none;
-    animation-duration: 4s;
-}
+  .carousel-viewport,
+  .carousel-slide {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-/* Slide animations */
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
+  .carousel-slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background: black;
+  }
 
-#slide1:checked ~ .slides #slide_1,
-#slide2:checked ~ .slides #slide_2,
-#slide3:checked ~ .slides #slide_3 {
-    display: block;
-}
-
-/* Navigation Arrows */
-.prev, .next {
-    cursor: pointer;
+  .carousel-pusher {
     position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.prev {
+    top: 0;
     left: 0;
-    border-radius: 3px 0 0 3px;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+
+  @media (hover: hover) {
+    .carousel-pusher {
+      animation-delay: 0s;
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: var(--slide-time);
+      animation-iteration-count: infinite;
+    }
+
+    .carousel-slide:last-child .carousel-pusher {
+      animation-name: tostart, snap;
+      animation-duration: calc(var(--slide-time) * (var(--no-slides) - 1)), var(--slide-time);
+      animation-delay: var(--slide-time), 0s;
+    }
+  }
+
+  @keyframes tonext {
+    0% {
+      filter: opacity(0);
+    }
+    75% {
+      transform: translateX(0);
+    }
+    95% {
+      transform: translateX(100%);
+    }
+    98% {
+      transform: translateX(100%);
+    }
+    99% {
+      filter: opacity(1);
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+  }
+
+  @keyframes tostart {
+    95.8% {     /* some fractions less than next frame time */
+      transform: translateX(0%);
+    }
+    95.823% { /* 0.75 * (100%/--no-slides) + 100% - (100%/--no-slides) +-0.500 adjustment*/
+  transform: translateX(calc((var(--no-slides)) * -100%));
 }
-
-.next {
-    right: 0;
-    border-radius: 0 3px 3px 0;
+99.5% {  /* 0.99 * (100%/--no-slides) + 100% - (100%/--no-slides)  +-0.500 adjustment*/
+  transform: translateX(calc((var(--no-slides) - 2) * -100%));
 }
+  }
 
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
+  /* slide content styles */
+  .content {
+    padding: 20px ;
+    font-size: 150px;
+    text-align: center;
+  }
 
-/* Fallback for browsers that don't support animations */
-.no-cssanimations .slide {
-   display: block;
-}
-
-
+/* Image Block */
 .image-block {
     display: flex;
     justify-content: space-around;
@@ -103,11 +179,13 @@ nav a {
 
 .image-block img {
     width: 30%; /* Adjust based on preference */
+    height: 600px;
 }
 
+/* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #1B262C; /* Dark Blue */
+    color: #BBE1FA; /* Light Text */
     text-align: center;
     padding: 20px 0;
 }
@@ -130,16 +208,16 @@ footer {
 }
 
 .footer-links a {
-    color: white;
+    color: #BBE1FA; /* Light Text */
     text-decoration: none;
 }
 
 .footer-links a:hover {
     text-decoration: underline;
+    color: #3282B8; /* Light Blue for Hover State */
 }
 
-
-/* Responsive design */
+/* Responsive Design */
 @media screen and (max-width: 600px) {
     .image-block {
         flex-direction: column;
