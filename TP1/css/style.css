@@ -1,0 +1,126 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+#logo {
+    width: 100px; /* or your preferred size */
+}
+
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.slideshow {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide-radio {
+    display: none;
+}
+
+.slide {
+    display: none;
+    animation-duration: 4s;
+}
+
+/* Slide animations */
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+#slide1:checked ~ .slides #slide_1,
+#slide2:checked ~ .slides #slide_2,
+#slide3:checked ~ .slides #slide_3 {
+    display: block;
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Fallback for browsers that don't support animations */
+.no-cssanimations .slide {
+   display: block;
+}
+
+
+.image-block {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.image-block img {
+    width: 30%; /* Adjust based on preference */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .image-block {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-block img {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+
+    header, nav a {
+        flex-direction: column;
+        text-align: center;
+    }
+}

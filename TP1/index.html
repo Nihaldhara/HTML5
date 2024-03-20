@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <img src="./img/logo.jpg" alt="Logo" id="logo">
+        <nav>
+            <ul>
+                <li><a href="#slideshow">Slideshow</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#footer">Footer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slideshow">
+        <!-- Radio Buttons for Slides -->
+        <input type="radio" name="slide" class="slide-radio" id="slide1" checked>
+        <input type="radio" name="slide" class="slide-radio" id="slide2">
+        <input type="radio" name="slide" class="slide-radio" id="slide3">
+    
+        <!-- Slides -->
+        <div class="slides">
+            <div class="slide fade" id="slide_1">
+                <img src="./img/android_project.webp" style="width:100%">
+            </div>
+            <div class="slide fade" id="slide_2">
+                <img src="./img/la_reu.png" style="width:100%">
+            </div>
+            <div class="slide fade" id="slide_3">
+                <img src="./img/vr-set.webp" style="width:100%">
+            </div>
+        </div>
+    
+        <!-- Arrows -->
+        <label for="slide1" class="prev">&#10094;</label>
+        <label for="slide2" class="next">&#10095;</label>
+    </div>
+    
+    <div class="image-block">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="image5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
