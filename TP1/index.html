@@ -8,15 +8,14 @@
     <header>
         <img src="./img/logo.jpg" alt="Logo" id="logo">
         <nav>
-            <ul>
-                <li><a href="#slideshow">Slideshow</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#footer">Footer</a></li>
-            </ul>
+            <a href="#slideshow">Slideshow</a>
+            <a href="#images">Images</a>
+            <a href="#footer">Footer</a>
         </nav>
     </header>
+    
 
-    <div class="slideshow">
+    <div id="slideshow" class="slideshow">
         <!-- Radio Buttons for Slides -->
         <input type="radio" name="slide" class="slide-radio" id="slide1" checked>
         <input type="radio" name="slide" class="slide-radio" id="slide2">
@@ -40,14 +39,22 @@
         <label for="slide2" class="next">&#10095;</label>
     </div>
     
-    <div class="image-block">
-        <img src="image4.jpg" alt="Image 4">
-        <img src="image5.jpg" alt="Image 5">
-        <img src="image6.jpg" alt="Image 6">
+    <div id="images" class="image-block">
+        <img src="./img/EsieaBoard.jpg" alt="Image 4">
+        <img src="./img/logo_la_reu.png" alt="Image 5">
+        <img src="./img/vr-game.webp" alt="Image 6">
     </div>
 
-    <footer>
-        
+    <footer id="footer">
+        <div class="footer-content">
+            <p>© 2024 Nihaldhara</p>
+            <ul class="footer-links">
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+                <li><a href="#cookie-policy">Cookie Policy</a></li>
+                <li><a href="#terms-of-use">Terms of Use</a></li>
+            </ul>
+        </div>
     </footer>
+    
 </body>
 </html>

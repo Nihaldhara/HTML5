@@ -14,11 +14,19 @@ header {
 }
 
 #logo {
-    width: 100px; /* or your preferred size */
+    width: 100px; /* Adjust size as needed */
+    /* If you want the logo to not grow or shrink, set the flex values as follows */
+    flex: 0 1 auto; 
+}
+
+nav {
+    display: flex;
+    flex-grow: 1; /* This will make the nav bar fill the available space */
+    justify-content: space-evenly; /* This spreads the items evenly */
 }
 
 nav a {
-    margin: 0 10px;
+    margin: 0 10px; /* Adjust as needed */
     color: white;
     text-decoration: none;
 }
@@ -101,11 +109,35 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 20px 0;
 }
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links li {
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
 
 /* Responsive design */
 @media screen and (max-width: 600px) {
