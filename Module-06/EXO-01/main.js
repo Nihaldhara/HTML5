@@ -35,6 +35,8 @@ elementById.addEventListener('click', function(){
 // Modification du style css
 elementById.style.color = 'green';
 
+
+
 // fonctions Js
 function additionner(a,b) {
     return a + b;

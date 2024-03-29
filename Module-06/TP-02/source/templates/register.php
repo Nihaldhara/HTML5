@@ -18,15 +18,13 @@
                 <?php if (isset($data['errors']['prenom'])) : ?>
                     <p class="error-message"><?php echo $data['errors']['prenom']; ?></p>
                 <?php endif; ?>
-
-
+                
                 <label for="adresse">Adresse:</label>
                 <input type="text" id="adresseInput" name="adresse" required>
-                <ul id="suggestionsList" class="suggestions-list"></ul>
+                <ul id="suggestionsList"></ul>
                 <?php if (isset($data['errors']['adresse'])) : ?>
                     <p class="error-message"><?php echo $data['errors']['adresse']; ?></p>
                 <?php endif; ?>
-                
                 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>

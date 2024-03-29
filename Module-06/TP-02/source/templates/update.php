@@ -26,9 +26,7 @@
             
             <label for="adresse">Adresse:</label>
             <input type="text" id="adresseInput" name="adresse" required value="<?= functions\sanitizeInput($userInfo['adresse']); ?>" required>
-            <div class="dropdown">
-                <ul id="suggestionsList"></ul>
-            </div>
+            <ul id="suggestionsList"></ul>
             <?php if (isset($data['errors']['adresse'])) : ?>
                 <p class="error-message"><?php echo $data['errors']['adresse']; ?></p>
             <?php endif; ?>
