@@ -54,6 +54,55 @@ button {
     cursor: pointer;
 }
 
+/* Style the address input */
+#adresseInput {
+    width: 100%; /* Full width */
+    padding: 10px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Box sizing to avoid size issues */
+    margin-top: 6px; /* Margin to separate from label */
+    margin-bottom: 16px; /* Margin to separate from dropdown */
+}
+
+/* Style the dropdown container */
+.dropdown {
+    position: relative; /* Position relative for absolute positioning inside */
+    display: inline-block; /* Inline block for dropdown */
+}
+
+/* Style the suggestions list */
+#suggestionsList {
+    display: none; /* Hide the list initially */
+    position: absolute; /* Absolute positioning */
+    background-color: #f9f9f9; /* Light grey background */
+    min-width: 160px; /* Minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Dropdown shadow */
+    z-index: 1; /* Ensure it's on top */
+    list-style-type: none; /* Remove list bullets */
+    padding: 12px 16px; /* Some padding */
+    border-radius: 4px; /* Rounded borders */
+    border: 1px solid #ddd; /* Light grey border */
+}
+
+/* Style for list items in suggestions list */
+#suggestionsList li {
+    padding: 8px 12px; /* Padding for list items */
+    cursor: pointer; /* Change cursor to pointer */
+    text-decoration: none; /* No underline */
+    display: block; /* Display block for width */
+}
+
+#suggestionsList li:hover {
+    background-color: #ddd; /* Hover effect */
+}
+
+/* Style for error message */
+.error-message {
+    color: red; /* Red color for errors */
+    margin-top: 5px; /* Margin from the input field */
+}
+
 .close-button{
     background-color: rgb(141, 14, 14);
     width: 180px;

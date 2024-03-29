@@ -5,6 +5,7 @@
             <li>&copy; 2024 Système Gestion Utilisateurs</li>
         </ul>
     </footer>   
-    <script src="functions/api.js"></script> 
+    
 </body>
+<script src="functions/api.js"></script> 
 </html>
